@@ -36,18 +36,11 @@ fn handle_path_recursive(path_os_string: OsString, depth: usize) -> Result<(), s
 fn print_path(path: &Path, depth: usize, is_dir: bool){
     match path.file_name(){
         Some(path) => {
-            match path.to_os_string().into_string() {
-                Ok(mut f) => {
-                    if &f[0..1] != "."{
-                        f = if !is_dir {f} else { f + "/" };
-                        if depth == 0 {
-                            println!("\n{:_<1$}{2}", "", depth*2, f);
-                        } else {
-                            println!("|{:_<1$}{2}", "", depth*2, f);
-                        }
-                    }
-                },
-                Err(_) => return,
+            let mut f = path.to_string_lossy();
+            if &f[0..1] != "." {
+                f = if !is_dir { f } else { f + "/" };
+                if depth == 0 { println!("") } else { print!("|") };
+                println!("{:_<1$}{2}", "", depth*2, f);
             }
         },
         None => return,
