@@ -37,7 +37,7 @@ fn print_path(path: &Path, depth: usize, is_dir: bool){
     match path.file_name(){
         Some(path) => {
             let mut f = path.to_string_lossy();
-            if &f[0..1] != "." {
+            if !f.starts_with('.') {
                 f = if !is_dir { f } else { f + "/" };
                 if depth == 0 { println!("") } else { print!("|") };
                 println!("{:_<1$}{2}", "", depth*2, f);
