@@ -3,73 +3,42 @@ trait Animal {
     fn eat(&self) -> String;
 }
 
-struct Horse {
-    data: AnimalData,
-}
-
-struct Dog {
-    data: AnimalData,
-}
-
-struct Cat {
-    data: AnimalData,
-}
-
-struct AnimalData {
-    name: String,
-    noise: String,
-    food: String,
-}
+struct Horse;
+struct Dog;
+struct Cat;
 
 impl Animal for Horse {
     fn do_noise(&self) -> String {
-        return format!("A {} says {}", self.data.name, self.data.noise);
+        return format!("A HORSE says BAHAHA");
     }
     fn eat(&self) -> String {
-        return format!("and eats {}", self.data.food);
+        return format!("and eats CARROTS");
     }
 }
 
 impl Animal for Dog {
     fn do_noise(&self) -> String {
-        return format!("A {} says {}", self.data.name, self.data.noise);
+        return format!("A DOG says BARF");
     }
     fn eat(&self) -> String {
-        return format!("and eats {}", self.data.food);
+        return format!("and eats ANYTHING");
     }
 }
 
 impl Animal for Cat {
     fn do_noise(&self) -> String {
-        return format!("A {} says {}", self.data.name, self.data.noise);
+        return format!("A CAT says MIAOU");
     }
     fn eat(&self) -> String {
-        return format!("and eats {}", self.data.food);
+        return format!("and eats FISH");
     }
 }
 
 fn main() {
-    let h = Horse {
-        data: AnimalData {
-            name: String::from("Horse"),
-            noise: String::from("Buahaha"),
-            food: String::from("Carrots"),
-        },
-    };
-    let d = Dog {
-        data: AnimalData {
-            name: String::from("Dog"),
-            noise: String::from("Barf"),
-            food: String::from("Anything"),
-        },
-    };
-    let c = Cat {
-        data: AnimalData {
-            name: String::from("Cat"),
-            noise: String::from("Miaou"),
-            food: String::from("Fish"),
-        },
-    };
+    let h = Horse;
+    let d = Dog;
+    let c = Cat;
+
     println!("{} {}", h.do_noise(), h.eat());
     println!("{} {}", d.do_noise(), d.eat());
     println!("{} {}", c.do_noise(), c.eat());
