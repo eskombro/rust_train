@@ -9,28 +9,28 @@ struct Cat;
 
 impl Animal for Horse {
     fn do_noise(&self) -> String {
-        return format!("A HORSE says BAHAHA");
+        String::from("A HORSE says BAHAHA")
     }
     fn eat(&self) -> String {
-        return format!("and eats CARROTS");
+        String::from("and eats CARROTS")
     }
 }
 
 impl Animal for Dog {
     fn do_noise(&self) -> String {
-        return format!("A DOG says BARF");
+        String::from("A DOG says BARF")
     }
     fn eat(&self) -> String {
-        return format!("and eats ANYTHING");
+        String::from("and eats ANYTHING")
     }
 }
 
 impl Animal for Cat {
     fn do_noise(&self) -> String {
-        return format!("A CAT says MIAOU");
+        String::from("A CAT says MIAOU")
     }
     fn eat(&self) -> String {
-        return format!("and eats FISH");
+        String::from("and eats FISH")
     }
 }
 
