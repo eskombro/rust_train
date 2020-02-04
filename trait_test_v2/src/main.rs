@@ -36,8 +36,7 @@ impl Animal for Cat {
 
 fn main() {
     let vec: Vec::<Box<Animal>> = vec![Box::new(Horse), Box::new(Dog), Box::new(Cat)];
-
-    println!("{} {}", vec.get(0).unwrap().do_noise(), vec.get(0).unwrap().eat());
-    println!("{} {}", vec.get(1).unwrap().do_noise(), vec.get(1).unwrap().eat());
-    println!("{} {}", vec.get(2).unwrap().do_noise(), vec.get(2).unwrap().eat());
+    for animal in &vec{
+        println!("{} {}", animal.do_noise(), animal.eat());
+    }
 }
