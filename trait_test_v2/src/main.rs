@@ -35,7 +35,7 @@ impl Animal for Cat {
 }
 
 fn main() {
-    let vec: Vec::<Box<Animal>> = vec![Box::new(Horse), Box::new(Dog), Box::new(Cat)];
+    let vec: Vec<&dyn Animal> = vec![&Horse, &Dog, &Cat];
     for animal in &vec{
         println!("{} {}", animal.do_noise(), animal.eat());
     }
